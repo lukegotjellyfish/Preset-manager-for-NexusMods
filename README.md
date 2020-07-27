@@ -3,13 +3,13 @@
  
  Line 138: 
  ```js
- const transformModFormat = (mod) => ({
+const transformModFormat = (mod) => ({
     name: mod.attributes.modName,
     version: mod.attributes.version,
     category: mod.attributes.category,
+    modId: mod.attributes.modId,
     shortDescription: mod.attributes.shortDescription,
     size: mod.attributes.size,
-    modId: mod.attributes.modId,
     fileId: mod.attributes.fileId,
     fileName: mod.attributes.fileName,
     author: mod.attributes.author,
