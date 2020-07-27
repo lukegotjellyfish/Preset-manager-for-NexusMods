@@ -15,4 +15,5 @@
     author: mod.attributes.author,
     game: mod.attributes.downloadGame,
     endorsed: mod.attributes.endorsed,
-});```
+});
+```
