@@ -81,16 +81,16 @@ while True:
             print("-"*179)
             for mod in modList:
                 csvwriter.writerow(mod)
-                print(mod[0][:buffer]   + spacer * (buffer-len(mod[0][:buffer]))  + "| " +
-                      mod[1][:vbuffer]  + spacer * (vbuffer-len(mod[1][:buffer])) + "| " +
-                      mod[2][:buffer]   + spacer * (buffer-len(mod[2][:buffer]))  + "| " +
-                      mod[3][:buffer]   + spacer * (buffer-len(mod[3][:buffer]))  + "| " +
-                      mod[4][:buffer]   + spacer * (buffer-len(mod[4][:buffer]))  + "| " +
+                print(mod[0][:buffer]   + spacer * (buffer-len(mod[0][:buffer]))   + "| " +
+                      mod[1][:vbuffer]  + spacer * (vbuffer-len(mod[1][:buffer]))  + "| " +
+                      mod[2][:buffer]   + spacer * (buffer-len(mod[2][:buffer]))   + "| " +
+                      mod[3][:buffer]   + spacer * (buffer-len(mod[3][:buffer]))   + "| " +
+                      mod[4][:buffer]   + spacer * (buffer-len(mod[4][:buffer]))   + "| " +
                       mod[5][:vbuffer]  + spacer * (vbuffer-len(mod[5][:vbuffer])) + "| " +
                       mod[6][:vbuffer]  + spacer * (vbuffer-len(mod[6][:vbuffer])) + "| " +
                       mod[7][:vbuffer]  + spacer * (vbuffer-len(mod[7][:vbuffer])) + "| " +
-                      mod[8][:vbuffer]   + spacer * (vbuffer-len(mod[8][:vbuffer]))  + "| " +
-                      mod[9][:vbuffer]   + spacer * (vbuffer-len(mod[9][:vbuffer]))  + "| " +
+                      mod[8][:vbuffer]  + spacer * (vbuffer-len(mod[8][:vbuffer])) + "| " +
+                      mod[9][:vbuffer]  + spacer * (vbuffer-len(mod[9][:vbuffer])) + "| " +
                       mod[10][:vbuffer] + spacer * (vbuffer-len(mod[10][:buffer])))
 
 
