@@ -2,6 +2,7 @@
 import re
 import os
 import html
+import csv
 import catDict
 import tkinter as tk
 from tkinter import filedialog
@@ -17,8 +18,8 @@ def trimlist(x, type):
     x[1] = x[1].replace('        "version": "', "")[:-3]
     x[2] = x[2].replace('        "category": ', "")[:-2]
     x[3] = html.unescape(x[3].replace('        "shortDescription": ', "")[:-2])
-    x[3] = re.sub("(\[[^\]]*\])", "", x[3])
-    x[4] = x[4].replace('        "modId": ', "")[:-2]
+    x[3] = re.sub("(\[[^\]]*\])", "", x[3])[1:-1]
+    x[4] = x[4].replace('        "modId": ', "")[:-2].replace('"',"")
     x[5] = x[5].replace('        "fileId": ', "")[:-2]
     x[6] = x[6].replace('        "fileName": "', "")[:-3]
     x[7] = x[7].replace('        "author": "', "")[:-3]
@@ -27,8 +28,10 @@ def trimlist(x, type):
     if type == 2:  # Has endorsed section
         x[8] = x[8].replace('        "game": "', "")[:-3]
         x[9] = x[9].replace('        "endorsed": "', "")[:-2]
-    print(x[8])
     x[2] = categorytranslate(x[2], x[8])
+
+    # Add link
+    x.insert(4,"https://www.nexusmods.com/oblivion/mods/" + x[4])
 
     return x
 
@@ -37,9 +40,13 @@ while True:
     modList = []
     root = tk.Tk()
     root.withdraw()
+
+
     file_path = filedialog.askopenfilename(initialdir=os.getcwd(),
                                            title="Select Preset to Inherit",
                                            filetypes=[("Modlist Export File", "*.*")])
+    if len(file_path) < 1: continue
+
     with open(file_path, "r", encoding='utf-8') as modfile:
         lines = modfile.readlines()
         modList = []
@@ -62,13 +69,33 @@ while True:
                     modList.append(trimlist(lines[startMod:endMod], 2))
             i += 1
 
-        with open("modFile.csv", "w") as f:
-            for mods in modList:
-                for item in mods:
-                    f.write(item + ",")
-                f.write("\n")
 
-    input("Press ENTER to restart.")
+        spacer = " "
+        buffer = 21
+        vbuffer = 11
+        with open("modFile.csv", "w", newline='\n') as csvfile:
+            csvwriter = csv.writer(csvfile, delimiter=',')
+            csvwriter.writerow(["Name", "Version", "Category", "Description", "Link", "ModID","FileID", "FileName", "Author", "Game", "Endorsed"])
+            print("Name                 | Version    | Category             | Description          " +
+                  "| Link                 | ModID      | FileID     | FileName   | Author     | Game       | Endorsed")
+            print("-"*179)
+            for mod in modList:
+                csvwriter.writerow(mod)
+                print(mod[0][:buffer]   + spacer * (buffer-len(mod[0][:buffer]))  + "| " +
+                      mod[1][:vbuffer]  + spacer * (vbuffer-len(mod[1][:buffer])) + "| " +
+                      mod[2][:buffer]   + spacer * (buffer-len(mod[2][:buffer]))  + "| " +
+                      mod[3][:buffer]   + spacer * (buffer-len(mod[3][:buffer]))  + "| " +
+                      mod[4][:buffer]   + spacer * (buffer-len(mod[4][:buffer]))  + "| " +
+                      mod[5][:vbuffer]  + spacer * (vbuffer-len(mod[5][:vbuffer])) + "| " +
+                      mod[6][:vbuffer]  + spacer * (vbuffer-len(mod[6][:vbuffer])) + "| " +
+                      mod[7][:vbuffer]  + spacer * (vbuffer-len(mod[7][:vbuffer])) + "| " +
+                      mod[8][:vbuffer]   + spacer * (vbuffer-len(mod[8][:vbuffer]))  + "| " +
+                      mod[9][:vbuffer]   + spacer * (vbuffer-len(mod[9][:vbuffer]))  + "| " +
+                      mod[10][:vbuffer] + spacer * (vbuffer-len(mod[10][:buffer])))
+
+
+    input("\n\n\nFinished, press ENTER to restart.")
+    os.system('cls')
 
 # https://www.nexusmods.com/skyrimspecialedition/mods/  MOD_ID ?tab=files&file_id= FILE_ID &nmm=1
 # Vortex Mod Attributes:
