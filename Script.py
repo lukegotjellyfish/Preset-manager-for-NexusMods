@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+import re
 import os
+import html
 import tkinter as tk
 from tkinter import filedialog
 
@@ -73,15 +76,17 @@ def trimList(x,type):
 	x[0] = x[0].replace('        "name": "',"")[:-3]
 	x[1] = x[1].replace('        "version": "',"")[:-3]
 	x[2] = x[2].replace('        "category": ',"")[:-2]
-	x[3] = x[3].replace('        "modId": ',"")[:-2]
-	x[4] = x[4].replace('        "fileId": ',"")[:-2]
-	x[5] = x[5].replace('        "fileName": "',"")[:-3]
-	x[6] = x[6].replace('        "author": "',"")[:-3]
+	x[3] = html.unescape(x[3].replace('        "shortDescription": ',"")[:-2])
+	x[3] = re.sub("(\[[^\]]*\])","",x[3])
+	x[4] = x[4].replace('        "modId": ',"")[:-2]
+	x[5] = x[5].replace('        "fileId": ',"")[:-2]
+	x[6] = x[6].replace('        "fileName": "',"")[:-3]
+	x[7] = x[7].replace('        "author": "',"")[:-3]
 	if type == 1:  #No endorsed section
-		x[7] = x[7].replace('        "game": "',"")[:-2]
+		x[8] = x[8].replace('        "game": "',"")[:-2]
 	if type == 2:  #Has endorsed section
-		x[7] = x[7].replace('        "game": "',"")[:-3]
-		x[8] = x[8].replace('        "endorsed": "',"")[:-3]
+		x[8] = x[8].replace('        "game": "',"")[:-3]
+		x[9] = x[9].replace('        "endorsed": "',"")[:-2]
 	return x
 
 
@@ -113,8 +118,12 @@ while True:
 					modList.append(trimList(lines[startMod:endMod],2))
 			i += 1
 
-		for mods in modList:
-			print(str(mods) + "\n")
+		with open("modFile.csv", "w") as f:
+			for mods in modList:
+				for item in mods:
+					f.write(item + ",")
+				f.write("\n")
+
 	input("Press ENTER to restart.")
 
 
