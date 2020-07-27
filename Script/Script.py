@@ -93,7 +93,6 @@ while True:
                       mod[9][:vbuffer]  + spacer * (vbuffer-len(mod[9][:vbuffer])) + "| " +
                       mod[10][:vbuffer] + spacer * (vbuffer-len(mod[10][:buffer])))
 
-
     input("\n\n\nFinished, press ENTER to restart.")
     os.system('cls')
 
