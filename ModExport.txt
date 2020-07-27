@@ -1,0 +1,96 @@
+[
+    {
+        "name": "Campfire - Complete Camping System (Supports Skyrim VR)",
+        "version": "1.12.1SEVR",
+        "category": 33,
+        "shortDescription": "Campfire is the most feature-rich stand-alone camping mod for The Elder Scrolls V: Skyrim, created from Frostfall's immersive and detailed camping system. Campfire is also a modder's framework, allowing anyone to create their own unique camping equipment.",
+        "modId": 667,
+        "fileId": 65049,
+        "fileName": "Campfire 1.12.1SEVR Release-667-1-12-1SEVR.zip",
+        "author": "Chesko",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Chanterelle - a savage world to explore",
+        "version": "1.2",
+        "category": 30,
+        "shortDescription": "A world made to be used with Campfire/Hunterborn. Huge, no civilization. Can be used to expand the Falkreath forest, four portal between Chanterelle and Falkreath hold. Some merchants specialized in hunt products to help you stay longer here.",
+        "modId": "32603",
+        "fileId": 136924,
+        "fileName": "Chanterelle World BSA version-32603-1-2-1588147552.7z",
+        "author": "Vactrol",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Fores New Idles in Skyrim SE - FNIS SE",
+        "version": "7.6",
+        "category": 51,
+        "shortDescription": "No custom animation possible for Skyrim? Wrong. [color=skyblue]FNIS Behaviors allows to add different types of animations to the game[/color]: idles/poses, sequenced, furniture, paired, killmoves, creatures, and others.",
+        "modId": "3038",
+        "fileId": 124617,
+        "fileName": "FNIS Behavior SE 7_6-3038-7-6-1582048023.7z",
+        "author": "fore",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Immersive Sounds - Compendium",
+        "version": "2.2",
+        "category": 106,
+        "shortDescription": "A dramatic and extensively customizable overhaul of Skyrim's sound.",
+        "modId": 523,
+        "fileId": 78695,
+        "fileName": "Immersive Sounds Compendium SSE 2.2-523-2-2-1547767621.zip",
+        "author": "lazygecko",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Improved Weapon Impact EFFECTS Correct Metal SE - Immersive Sounds Patch",
+        "version": "1.0",
+        "category": 84,
+        "shortDescription": "Simple patch to bring the sparks to the newly-added sounds for 2HWeapons in Immersive Sounds, making those weapon types use the improved effects together with the new sounds.",
+        "modId": 38686,
+        "fileId": 152251,
+        "fileName": "Improved Weapon Impact EFFECTS Correct Metal SE - Immersive Sounds Patch-38686-1-0-1595773353.rar",
+        "author": "Mur4s4me - Lordaloa - Mafjora - lazyskeever",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Boethiah for Good Guys",
+        "version": "1.0",
+        "category": 35,
+        "shortDescription": "Complete Boethiah&#39;s quest without betraying a friend.",
+        "modId": 329,
+        "fileId": 5074,
+        "fileName": "Main File-329-1-0.zip",
+        "author": "Iceburg",
+        "game": "skyrimse",
+        "endorsed": "Undecided"
+    },
+    {
+        "name": "Namira for Good Guys",
+        "version": "1.1",
+        "category": 35,
+        "shortDescription": "Play a trick on Namira&#33; Complete Namira&#39;s quest &#34;The Taste of Death&#34; without sacrificing a priest to Cannibals.",
+        "modId": 336,
+        "fileId": 10777,
+        "fileName": "Main File-336-1-1.zip",
+        "author": "Iceburg",
+        "game": "skyrimse"
+    },
+    {
+        "name": "Improved Weapon Impact EFFECTS Correct Metal SE",
+        "version": "1.3",
+        "category": 78,
+        "shortDescription": "A cleaned with SSEEdit version of an Oldrim mod with the same name by Lordaloa.",
+        "modId": 8936,
+        "fileId": 22636,
+        "fileName": "Sparkles-8936-1-3.zip",
+        "author": "Lordaloa",
+        "game": "skyrimse"
+    }
+]
