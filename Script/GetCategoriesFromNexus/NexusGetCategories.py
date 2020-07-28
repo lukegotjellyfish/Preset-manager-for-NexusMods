@@ -65,7 +65,11 @@ def add_another(input_url, gamename, loopnum, numitems):
     "('13', 'Maps (Xbox 360 Showcase)'), ",
     "('19', 'Maps (SP)'), ",
     "('20', 'Maps (SP/MP)'), ",
-    "('21', 'Maps (MP)'), "]
+    "('21', 'Maps (MP)'), ",
+    "('10', 'Maps - Tower Defense (Survivor)'), ",
+    "('16', 'Maps - Role Playing (RPG)'), ",
+    "('18', 'Maps - Tower Defense (Cooperative)'), "]
+
     postreplacementrepl = ["\n		\"30\": \"Mercantiles (shops, stores, inns, taverns, etc)\",",
     "\n		\"69\": \"Mercantiles (shops, stores, inns, taverns, etc)\",",
     "\n		\"43\": \"Items (Food, Drinks, Chems, etc)\",",
@@ -73,7 +77,10 @@ def add_another(input_url, gamename, loopnum, numitems):
     "\n		\"13\": \"Maps (Xbox 360 Showcase)\",",
     "\n		\"19\": \"Maps (SP)\",",
     "\n		\"20\": \"Maps (SP/MP)\",",
-    "\n		\"21\": \"Maps (MP)\","]
+    "\n		\"21\": \"Maps (MP)\",",
+    "\n		\"10\": \"Maps - Tower Defense (Survivor)\",",
+    "\n		\"16\": \"Maps - Role Playing (RPG)\",",
+    "\n		\"18\": \"Maps - Tower Defense (Cooperative)\","]
 
     i = 0
     for x in postreplacementmatch:
@@ -82,13 +89,23 @@ def add_another(input_url, gamename, loopnum, numitems):
     #Remove dictionary items from (x:y),(z:c) format
     stringDict = re.sub("\('([^\)]*)', '([^\)]*)'\)", "\n		\"\g<1>\": \"\g<2>\"", stringDict)
 
-    if numitems > loopnum: 
+    if numitems > loopnum:
         nextdict = ",\n"
         needremove = True
-    else: 
+    else:
         nextdict = ""
         needremove = False
     #Strip leading and ending [], replace with python dictionary format
+
+    inputname = ["skyrimspecialedition"]
+    changename = ["skyrimse"]
+    i = 0
+    for x in inputname:
+        if gamename == x:
+            gamename = changename[i]
+        i += 1
+    
+
     stringDict = stringDict.replace("[", "	\"" + gamename + "\" : {").replace("]","\n	}" + nextdict)
     #Print dictionary to preview
 
@@ -96,7 +113,7 @@ def add_another(input_url, gamename, loopnum, numitems):
         print(stringDict[:-1])
     else:
         print(stringDict)
-   
+
     with open(filename + fileextension, "a") as f:
         f.write(stringDict)
 
