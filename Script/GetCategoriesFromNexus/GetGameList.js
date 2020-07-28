@@ -6,13 +6,6 @@ var err = [];
 for (var i = 0; i < arrayLength; i++) {
     err.push(x[i].href.toString() + "/mods");
 }
-err.sort()
+err.sort();
 
-var err_final = "";
-for (var i = 0; i < arrayLength; i++) {
-	err_final += err[i];
-	if (i < arrayLength - 1) {
-		err_final += "\n"
-	}
-}
-console.log(err_final);
+console.log(err.toString().replace(/,/g,"\n"));
