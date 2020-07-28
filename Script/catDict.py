@@ -1,4 +1,4 @@
-skyrimSE = {
+skyrimse = {
 	"22": "Buildings",
 	"24": "Gameplay Effects and Changes",
 	"25": "Guilds/Factions",
