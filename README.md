@@ -1,5 +1,8 @@
 # NexusMods Vortex Modlist Backup Sorter
 
+On run, opens a tk file dialog to open the exported file from Vortex-Modlist-Backup to parse.
+CSV result is named "modFile(number if duplicate).csv"
+
 ![](Demo.png?raw=true)
 
 Requires:
