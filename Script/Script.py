@@ -9,8 +9,11 @@ from tkinter import filedialog
 
 
 def categorytranslate(category, game):
-    if game == "skyrimse":
-        return catDict.skyrimSE[str(category)]
+    try:
+        return catDict.nexus_dictionaries[game][category]
+    except:
+        print("Failed to find a match in nexus_dictionaries")
+        return category
 
 
 def trimlist(x, type):
