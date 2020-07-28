@@ -142,9 +142,9 @@ with open(filename + fileextension, "a") as f:
 # JavaScript script to get all game links (from https://www.nexusmods.com/games, click "Load <number> More")
 # var x = document.getElementsByClassName("mod-image");
 # var arrayLength = x.length;
-
+#
 # var err = "";
 # for (var i = 0; i < arrayLength; i++) {
-#     err += x[i].href.toString() + "\n";
+#     err += x[i].href.toString() + "/mods" + "\n";
 # }
 # console.log(err);
