@@ -1,8 +1,0 @@
-strandeddeep = {
-	"2": "Miscellaneous"
-}
-lobotomycorporation = {
-	"3": "Equipment Pack",
-	"2": "Miscellaneous",
-	"4": "Tools and Utilities"
-}
