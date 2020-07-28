@@ -2,7 +2,6 @@ import requests
 import time
 import re
 import ast
-import random
 import os
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
@@ -10,7 +9,9 @@ from lxml import html
 
 
 #Function repurposed from SteamCollectionSizeFinder
-def add_another(input_url, gamename):
+def add_another(input_url, gamename, loopnum, numitems):
+    #1 second delay to be kind to nexus's servers
+    time.sleep(1)
     #Request URL with Firefox identity
     req = Request(input_url, headers={'User-Agent': 'Mozilla/5.0'})
     #Open page to var
@@ -57,34 +58,83 @@ def add_another(input_url, gamename):
     #Convert dictionary into string to format and save
     stringDict = str(tempDict)
 
+    postreplacementmatch = ["('30', 'Mercantiles (shops, stores, inns, taverns, etc)'), ",
+    "('69', 'Mercantiles (shops, stores, inns, taverns, etc)'), ",
+    "('43', 'Items (Food, Drinks, Chems, etc)'), ",
+    "('14', \"Modder's Resources\"), ",
+    "('13', 'Maps (Xbox 360 Showcase)'), ",
+    "('19', 'Maps (SP)'), ",
+    "('20', 'Maps (SP/MP)'), ",
+    "('21', 'Maps (MP)'), "]
+    postreplacementrepl = ["\n		\"30\": \"Mercantiles (shops, stores, inns, taverns, etc)\",",
+    "\n		\"69\": \"Mercantiles (shops, stores, inns, taverns, etc)\",",
+    "\n		\"43\": \"Items (Food, Drinks, Chems, etc)\",",
+    "\n		\"14\": \"Modder's Resources\",",
+    "\n		\"13\": \"Maps (Xbox 360 Showcase)\",",
+    "\n		\"19\": \"Maps (SP)\",",
+    "\n		\"20\": \"Maps (SP/MP)\",",
+    "\n		\"21\": \"Maps (MP)\","]
+
+    i = 0
+    for x in postreplacementmatch:
+        stringDict = stringDict.replace(x, postreplacementrepl[i])
+        i += 1
     #Remove dictionary items from (x:y),(z:c) format
     stringDict = re.sub("\('([^\)]*)', '([^\)]*)'\)", "\n		\"\g<1>\": \"\g<2>\"", stringDict)
+
+    if numitems > loopnum: 
+        nextdict = ",\n"
+        needremove = True
+    else: 
+        nextdict = ""
+        needremove = False
     #Strip leading and ending [], replace with python dictionary format
-    stringDict = stringDict.replace("[", "	" + gamename + " = {").replace("]","\n	}\n")
+    stringDict = stringDict.replace("[", "	\"" + gamename + "\" : {").replace("]","\n	}" + nextdict)
     #Print dictionary to preview
-    print(stringDict)
+
+    if needremove == True:
+        print(stringDict[:-1])
+    else:
+        print(stringDict)
    
-    with open(filename, "a") as f:
+    with open(filename + fileextension, "a") as f:
         f.write(stringDict)
 
 ##START##
-filename = "dictionaries.txt"
-if os.path.isfile("./dictionaries.txt"):
+filename = "catDict"
+fileextension = ".py"
+if os.path.isfile("./" + filename + fileextension):
     x = 1
-    while os.path.isfile("./dictionaries" + str(x) + ".txt") is True:
+    while os.path.isfile("./" + filename + str(x) + fileextension) is True:
         x += 1
-    filename = "dictionaries" + str(x) + ".txt"
-with open(filename, "w") as f:
-    f.write("nexus_dictionaries = {\n")
+    filename = filename + str(x)
+
+with open(filename + fileextension, "w") as f:
+    f.write("nexus_dict = {\n")
+    print("nexus_dict = {")
 
 with open("links.txt", "r") as f:
     lines = f.readlines()
+    numLines = len(lines)
+    x = 1
     for line in lines:
         title = line.replace("https://www.nexusmods.com/","").replace("/mods","").replace("\n","")
-        add_another(line, title)
-        #1 second delay to be kind to nexus's servers
-        time.sleep(1)
+        add_another(line, title, x, numLines)
+        x += 1
 
 #end dict
-with open(filename, "a") as f:
+with open(filename + fileextension, "a") as f:
     f.write("\n}")
+    print("}")
+
+
+# Creates a dictionary in following format
+# nexus_dict = {
+#    "dict1" = {
+#       "2": "CategoryName",
+#       "3": "CategoryName"
+#    }
+#    "dict2" = {
+#       ...
+#    }
+#}
