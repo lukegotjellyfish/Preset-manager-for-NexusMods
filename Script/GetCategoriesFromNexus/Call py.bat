@@ -1,0 +1,2 @@
+CALL "NexusGetCategories.py"
+PAUSE
