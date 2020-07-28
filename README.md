@@ -17,3 +17,15 @@ const transformModFormat = (mod) => ({
     endorsed: mod.attributes.endorsed,
 });
 ```
+
+#NexusGetCategories
+Python script to create a category dictionary for every nexus link provided in links.txt in the same directory.
+
+Requires:
+- requests 
+- time
+- re
+- ast
+- bs4
+- urllib.request
+- lxml
