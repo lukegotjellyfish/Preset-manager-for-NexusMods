@@ -104,7 +104,6 @@ def add_another(input_url, gamename, loopnum, numitems):
         if gamename == x:
             gamename = changename[i]
         i += 1
-    
 
     stringDict = stringDict.replace("[", "	\"" + gamename + "\" : {").replace("]","\n	}" + nextdict)
     #Print dictionary to preview
