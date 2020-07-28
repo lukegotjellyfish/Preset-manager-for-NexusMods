@@ -34,7 +34,7 @@ def trimlist(x, type):
     x[2] = categorytranslate(x[2], x[8])
 
     # Add link
-    x.insert(4,"https://www.nexusmods.com/oblivion/mods/" + x[4])
+    x.insert(4,"https://www.nexusmods.com/" + x[8] + "/mods/" + x[4])
 
     return x
 
