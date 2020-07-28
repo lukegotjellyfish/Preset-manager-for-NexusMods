@@ -4703,7 +4703,7 @@ nexus_dict = {
 		"5": "Animation", 
 		"6": "Visuals and Graphics"
 	},
-	"skyrimspecialedition" : {
+	"skyrimse" : {
 		"100": "Crafting", 
 		"101": "Mounts", 
 		"102": "Clothing - Jewelry", 
