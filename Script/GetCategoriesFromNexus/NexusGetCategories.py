@@ -130,11 +130,21 @@ with open(filename + fileextension, "a") as f:
 
 # Creates a dictionary in following format
 # nexus_dict = {
-#    "dict1" = {
-#       "2": "CategoryName",
-#       "3": "CategoryName"
-#    }
-#    "dict2" = {
-#       ...
-#    }
-#}
+#     "dict1" = {
+#        "2": "CategoryName",
+#        "3": "CategoryName"
+#     }
+#     "dict2" = {
+#        ...
+#     }
+# }
+#
+# JavaScript script to get all game links (from https://www.nexusmods.com/games, click "Load <number> More")
+# var x = document.getElementsByClassName("mod-image");
+# var arrayLength = x.length;
+
+# var err = "";
+# for (var i = 0; i < arrayLength; i++) {
+#     err += x[i].href.toString() + "\n";
+# }
+# console.log(err);
