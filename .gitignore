@@ -2,3 +2,4 @@ Resources/
 .idea/
 .vscode/
 Script/__pycache__/
+*.csv
