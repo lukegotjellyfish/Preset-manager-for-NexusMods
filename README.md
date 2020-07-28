@@ -1,5 +1,7 @@
 # NexusMods Vortex Modlist Backup Sorter
 
+![](Demo.png?raw=true)
+
 Requires:
 - re
 - os
