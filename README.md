@@ -30,7 +30,7 @@ const transformModFormat = (mod) => ({
 # NexusGetCategories
 Python script to create a category dictionary for every nexus link provided in links.txt in the same directory.
 
-Run GetGameList.js in the console of a browser while on https://www.nexusmods.com/games to get a list
+Run GetGameList.js in the console of a browser while on https://www.nexusmods.com/games to get a new list, provided list has 1021 games, all as of 28/07/2020
 
 Requires:
 - requests 
