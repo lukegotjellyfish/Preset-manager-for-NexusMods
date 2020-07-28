@@ -22,7 +22,7 @@ def trimlist(x, type):
     x[2] = x[2].replace('        "category": ', "")[:-2]
     x[3] = html.unescape(x[3].replace('        "shortDescription": ', "")[:-2])
     x[3] = re.sub("(\[[^\]]*\])", "", x[3])[1:-1]
-    x[4] = x[4].replace('        "modId": ', "")[:-2].replace('"',"")
+    x[4] = x[4].replace('        "modId": ', "")[:-2].replace('"', "")
     x[5] = x[5].replace('        "fileId": ', "")[:-2]
     x[6] = x[6].replace('        "fileName": "', "")[:-3]
     x[7] = x[7].replace('        "author": "', "")[:-3]
@@ -34,7 +34,7 @@ def trimlist(x, type):
     x[2] = categorytranslate(x[2], x[8])
 
     # Add link
-    x.insert(4,"https://www.nexusmods.com/" + x[8] + "/mods/" + x[4])
+    x.insert(4, "https://www.nexusmods.com/" + x[8] + "/mods/" + x[4])
 
     return x
 
@@ -43,7 +43,6 @@ while True:
     modList = []
     root = tk.Tk()
     root.withdraw()
-
 
     file_path = filedialog.askopenfilename(initialdir=os.getcwd(),
                                            title="Select Preset to Inherit",
@@ -72,7 +71,6 @@ while True:
                     modList.append(trimlist(lines[startMod:endMod], 2))
             i += 1
 
-
         spacer = " "
         buffer = 21
         vbuffer = 11
@@ -85,26 +83,27 @@ while True:
                 x += 1
             filename = filename + str(x)
 
-
         with open(filename + fileextension, "w", newline='\n') as csvfile:
             csvwriter = csv.writer(csvfile, delimiter=',')
-            csvwriter.writerow(["Name", "Version", "Category", "Description", "Link", "ModID","FileID", "FileName", "Author", "Game", "Endorsed"])
+            csvwriter.writerow(
+                ["Name", "Version", "Category", "Description", "Link", "ModID", "FileID", "FileName", "Author", "Game",
+                 "Endorsed"])
             print("Name                 | Version    | Category             | Description          " +
                   "| Link                 | ModID      | FileID     | FileName   | Author     | Game       | Endorsed")
-            print("-"*179)
+            print("-" * 179)
             for mod in modList:
                 csvwriter.writerow(mod)
-                print(mod[0][:buffer]   + spacer * (buffer-len(mod[0][:buffer]))   + "| " +
-                      mod[1][:vbuffer]  + spacer * (vbuffer-len(mod[1][:buffer]))  + "| " +
-                      mod[2][:buffer]   + spacer * (buffer-len(mod[2][:buffer]))   + "| " +
-                      mod[3][:buffer]   + spacer * (buffer-len(mod[3][:buffer]))   + "| " +
-                      mod[4][:buffer]   + spacer * (buffer-len(mod[4][:buffer]))   + "| " +
-                      mod[5][:vbuffer]  + spacer * (vbuffer-len(mod[5][:vbuffer])) + "| " +
-                      mod[6][:vbuffer]  + spacer * (vbuffer-len(mod[6][:vbuffer])) + "| " +
-                      mod[7][:vbuffer]  + spacer * (vbuffer-len(mod[7][:vbuffer])) + "| " +
-                      mod[8][:vbuffer]  + spacer * (vbuffer-len(mod[8][:vbuffer])) + "| " +
-                      mod[9][:vbuffer]  + spacer * (vbuffer-len(mod[9][:vbuffer])) + "| " +
-                      mod[10][:vbuffer] + spacer * (vbuffer-len(mod[10][:buffer])))
+                print(mod[0][:buffer] + spacer * (buffer - len(mod[0][:buffer])) + "| " +
+                      mod[1][:vbuffer] + spacer * (vbuffer - len(mod[1][:buffer])) + "| " +
+                      mod[2][:buffer] + spacer * (buffer - len(mod[2][:buffer])) + "| " +
+                      mod[3][:buffer] + spacer * (buffer - len(mod[3][:buffer])) + "| " +
+                      mod[4][:buffer] + spacer * (buffer - len(mod[4][:buffer])) + "| " +
+                      mod[5][:vbuffer] + spacer * (vbuffer - len(mod[5][:vbuffer])) + "| " +
+                      mod[6][:vbuffer] + spacer * (vbuffer - len(mod[6][:vbuffer])) + "| " +
+                      mod[7][:vbuffer] + spacer * (vbuffer - len(mod[7][:vbuffer])) + "| " +
+                      mod[8][:vbuffer] + spacer * (vbuffer - len(mod[8][:vbuffer])) + "| " +
+                      mod[9][:vbuffer] + spacer * (vbuffer - len(mod[9][:vbuffer])) + "| " +
+                      mod[10][:vbuffer] + spacer * (vbuffer - len(mod[10][:buffer])))
 
     input("\n\n\nFinished, press ENTER to restart.")
     os.system('cls')
