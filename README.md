@@ -27,7 +27,7 @@ const transformModFormat = (mod) => ({
 });
 ```
 ---
-#NexusGetCategories
+# NexusGetCategories
 Python script to create a category dictionary for every nexus link provided in links.txt in the same directory.
 
 Requires:
