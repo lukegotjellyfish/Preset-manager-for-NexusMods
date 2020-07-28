@@ -1,6 +1,15 @@
 # NexusMods Vortex Modlist Backup Sorter
- Relies on exported file from https://github.com/Garethp/Vortex-Modlist-Backup with a small modification to export data:
- 
+
+Requires:
+- re
+- os
+- html
+- csv
+- catDict (provided or can be created from NexusGetCategories.py)
+- tkinter
+---
+Relies on exported file from https://github.com/Garethp/Vortex-Modlist-Backup with a small modification to export data:
+
  Line 138: 
  ```js
 const transformModFormat = (mod) => ({
@@ -17,7 +26,7 @@ const transformModFormat = (mod) => ({
     endorsed: mod.attributes.endorsed,
 });
 ```
-
+---
 #NexusGetCategories
 Python script to create a category dictionary for every nexus link provided in links.txt in the same directory.
 
