@@ -35,6 +35,7 @@ Requires:
 - time
 - re
 - ast
+- os
 - bs4
 - urllib.request
 - lxml
