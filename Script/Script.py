@@ -10,7 +10,7 @@ from tkinter import filedialog
 
 def categorytranslate(category, game):
     try:
-        return catDict.nexus_dictionaries[game][category]
+        return catDict.nexus_dict[game][category]
     except:
         print("Failed to find a match in nexus_dictionaries")
         return category
@@ -76,7 +76,17 @@ while True:
         spacer = " "
         buffer = 21
         vbuffer = 11
-        with open("modFile.csv", "w", newline='\n') as csvfile:
+
+        filename = "modFile"
+        fileextension = ".csv"
+        if os.path.isfile("./" + filename + fileextension):
+            x = 1
+            while os.path.isfile("./" + filename + str(x) + fileextension) is True:
+                x += 1
+            filename = filename + str(x)
+
+
+        with open(filename + fileextension, "w", newline='\n') as csvfile:
             csvwriter = csv.writer(csvfile, delimiter=',')
             csvwriter.writerow(["Name", "Version", "Category", "Description", "Link", "ModID","FileID", "FileName", "Author", "Game", "Endorsed"])
             print("Name                 | Version    | Category             | Description          " +
