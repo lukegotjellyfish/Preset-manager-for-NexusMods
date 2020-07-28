@@ -12,7 +12,7 @@ def categorytranslate(category, game):
     try:
         return catDict.nexus_dict[game][category]
     except:
-        print("Failed to find a match in nexus_dictionaries")
+        print("Failed to find a match in nexus_dict")
         return category
 
 
