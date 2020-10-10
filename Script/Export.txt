@@ -1175,18 +1175,6 @@
         "endorsed": "Undecided"
     },
     {
-        "name": "Fuz Ro D-oh - Silent Voice",
-        "version": "1.7",
-        "category": 39,
-        "shortDescription": "A SKSE64 plugin that adds support for unvoiced in-game dialog,",
-        "modId": 15109,
-        "fileId": 114169,
-        "fileName": "Fuz Ro D'oh-15109-1-7-1574514494.7z",
-        "author": "shadeMe",
-        "game": "skyrimse",
-        "endorsed": "Undecided"
-    },
-    {
         "name": "Glowing ebony armor by Mari",
         "version": "1.2",
         "category": 54,
